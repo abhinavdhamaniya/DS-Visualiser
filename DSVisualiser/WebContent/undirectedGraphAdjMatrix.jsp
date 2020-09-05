@@ -13,14 +13,14 @@
 	<script src="generateUndirectedGraphAdjMatrix.js"></script>
 	<style>
 		.box{
-			height: 40px;
-			width: 40px;
+			height: 50px;
+			width: 50px;
 			background-color: #bbb;
 			border-radius: 50%;
 			background-color: rgb(143, 188, 143);
 			display: inline-block;
 			text-align: center;
-			line-height: 40px;
+			line-height: 50px;
 			position: absolute;
 			
 		}
@@ -39,7 +39,7 @@
 
 
 		.arc {
-			border: 2px solid #000;
+			border: 3px solid #000;
 			border-radius: 50%;
 			height: 60px;
 			width: 60px;
@@ -64,6 +64,22 @@
 			left:20px;
 		}
 		
+		textarea
+		{
+			z-index:-199;
+		}
+		
+		.nodes
+		{
+			position: absolute;
+			top:400px;
+			left:15px;
+			border: 2px solid #000;
+			height: 2000px;
+			width: 98%;
+		
+		}
+		
 	</style>
 
 
@@ -84,25 +100,25 @@
 </head>
 <body>
 	
+	
 	<div class="adjMatrix">
+
 	<textarea id="matrix" name="matrix" rows="10" cols="40">
-0,1,1,1,0,0,0,0,0
-1,0,0,0,1,1,0,0,0
-1,0,0,1,0,0,1,0,0
-1,0,1,0,0,0,1,1,0
-0,1,0,0,0,0,0,0,1
-0,1,0,0,0,0,0,0,0
-0,0,1,1,0,0,0,0,0
-0,0,0,1,0,0,0,1,0
-0,0,0,0,1,0,0,0,1
+0,1,1,0,1,1
+1,0,1,0,0,0
+1,1,0,1,1,0
+0,0,1,0,1,0
+1,0,1,1,0,0
+1,0,0,0,1,0
 	</textarea> <br>
 	<input id="gen" type="button" value="Generate Graph" onclick="parseMatrix()">
-	</div>
 
-	<p id="nodes"></p> <br>  
+	</div> 
 
 	<p id="lines"></p>
 
-
+	<div class="nodes" id="nodes">
+	
+	</div>
 </body>
 </html>

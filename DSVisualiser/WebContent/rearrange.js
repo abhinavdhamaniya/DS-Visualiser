@@ -169,7 +169,7 @@ function rearrangeNodes(maxID)
 		c++;
 		if(c==curr)
 		{
-			if(offset<=100)offset+=20;
+			if(offset<=100) offset+=20;
 			c=0;
 			curr= iterator2.next().value;
 		}	
@@ -205,9 +205,9 @@ function rearrangeNodes(maxID)
 			var newLine = document.createElementNS('http://www.w3.org/2000/svg','line');
 			newLine.setAttribute('id','line2');
 			newLine.setAttribute('x1',parentPos.x+22);
-			newLine.setAttribute('y1',parentPos.y-180);
+			newLine.setAttribute('y1',parentPos.y-150);
 			newLine.setAttribute('x2',LCPos.x+22);
-			newLine.setAttribute('y2',LCPos.y-180);
+			newLine.setAttribute('y2',LCPos.y-150);
 			newLine.setAttribute("stroke", "black")
 			
 			var svgele = document.getElementById('svgid');
@@ -218,9 +218,9 @@ function rearrangeNodes(maxID)
 			var newLine = document.createElementNS('http://www.w3.org/2000/svg','line');
 			newLine.setAttribute('id','line2');
 			newLine.setAttribute('x1',parentPos.x+20);
-			newLine.setAttribute('y1',parentPos.y-180);
+			newLine.setAttribute('y1',parentPos.y-150);
 			newLine.setAttribute('x2',RCPos.x+20);
-			newLine.setAttribute('y2',RCPos.y-180);
+			newLine.setAttribute('y2',RCPos.y-150);
 			newLine.setAttribute("stroke", "black")
 			
 			var svgele = document.getElementById('svgid');

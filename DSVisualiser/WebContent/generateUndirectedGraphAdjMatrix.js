@@ -9,10 +9,11 @@
 
 	function parseMatrix()
 	{
+		
 		document.getElementById('nodes').innerHTML = '';
 		document.getElementById('lines').innerHTML = '';
 		boxCenterXOffset = 18;
-		boxCenterYOffset = 18;
+		boxCenterYOffset = 24;
 		linecount=1;
 
 		var adjMatrix;
@@ -65,7 +66,8 @@
 
 		$(document).ready(function()
 		{
-		
+				
+				//spawning all edges
 				for(var i=1; i<=n; i++)
 				{
 					for(var j=1; j<=n; j++)
@@ -73,7 +75,8 @@
 						$("#lines").append(`<p id='line${i}${j}' class='lineclass'></p>`);
 					}
 				}
-
+				
+				
 				$(".box").draggable({ delay: 0, distance: 0 },
 				{	
 					
@@ -92,12 +95,7 @@
 									var y1 = $("#box"+ i).offset().top + boxCenterYOffset;
 									var y2 = $("#box"+ j).offset().top + boxCenterYOffset;
 									
-									if(i==j)
-									{
-										//draw self loop
-
-									}
-									else 
+									if(i!=j)
 									{
 										//draw edge (line)
 										var hypotenuse = Math.sqrt((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2));
@@ -145,7 +143,9 @@ function checkPosAvailability(arr, posObj)
 	var x= parseFloat(posObj.x);
 	var y= parseFloat(posObj.y);
 	var n= parseInt(arr.length);
-
+	
+	if(x<15 || x>window.innerWidth-25)  return false;
+	
 	for(var i=0; i<n; i++)
 	{
 		if(x>=parseFloat(arr[i].x) && x<=parseFloat(arr[i].x)+60)
@@ -163,9 +163,12 @@ function checkPosAvailability(arr, posObj)
 
 function randomizeNodes(num, midNodeID)
 {
-	var xmid = window.innerWidth / 2;
-	var ymid = (window.innerHeight / 2)+250*(num*0.2);
-
+	
+	var graphdiv = document.getElementById("nodes");
+	var xmid= graphdiv.offsetWidth/2;
+	var ymid= graphdiv.offsetWidth/2;
+	
+	
 	var midNode= document.getElementById("box"+midNodeID);
 	midNode.style.left = xmid+"px";
 	midNode.style.top = ymid+"px";
